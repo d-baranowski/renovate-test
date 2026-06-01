@@ -1,12 +1,5 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "local>cognitedata/renovate-config"
-  ],
-  "labels": [
-    "dependencies",
-    "renovate"
-  ],
   "minimumReleaseAge": "7 days",
   "constraints": {
     "pnpm": "10.16.1"
