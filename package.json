@@ -1,0 +1,75 @@
+{
+  "name": "dune-monorepo",
+  "version": "0.0.0",
+  "private": true,
+  "packageManager": "pnpm@10.16.1",
+  "scripts": {
+    "build": "pnpm -r run build",
+    "test": "pnpm -r --if-present run test",
+    "lint": "eslint . --ext .js,.mjs,.cjs,.ts,.tsx",
+    "lint:fix": "eslint . --fix --ext .js,.mjs,.cjs,.ts,.tsx",
+    "format": "eslint . --fix --ext .js,.mjs,.cjs,.ts,.tsx",
+    "typecheck": "pnpm --filter @cognite/cli typecheck && tsc --noEmit -p tsconfig.typecheck.json",
+    "deploy": "npx tsx scripts/deploy-production.ts",
+    "deploy-preview": "tsx scripts/deploy-preview.ts",
+    "new:app": "hygen app new && pnpm install",
+    "test:build": "tsx scripts/regenerate-test-app.ts",
+    "test:run": "pnpm --dir ./build/flows-test-app dev"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.17",
+    "@tanstack/react-query": "^5.90.10",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "tailwindcss": "^4.1.17"
+  },
+  "pnpm": {
+    "overrides": {
+      "flatted": ">=3.4.2",
+      "axios": ">=1.15.2",
+      "rollup": ">=4.59.0",
+      "picomatch": ">=4.0.4",
+      "minimatch@5": ">=5.1.8",
+      "esbuild@<=0.24.2": ">=0.25.0",
+      "brace-expansion@<1.1.13": ">=1.1.13",
+      "brace-expansion@>=2.0.0 <2.0.3": "2.1.0",
+      "brace-expansion@>=4.0.0 <5.0.5": ">=5.0.5",
+      "lodash@<=4.17.23": ">=4.18.0",
+      "lodash-es@<=4.17.23": ">=4.18.0",
+      "dompurify@<3.4.0": ">=3.4.0",
+      "uuid@>=11.0.0 <11.1.1": ">=11.1.1",
+      "mermaid@>=11.0.0-alpha.1 <=11.14.0": ">=11.15.0",
+      "vite@<=6.4.1": ">=6.4.2",
+      "qs@>=6.11.1 <=6.15.1": ">=6.15.2"
+    },
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "msw"
+    ]
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.2",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "@testing-library/user-event": "^14.5.2",
+    "@types/archiver": "^7.0.0",
+    "@types/node": "^24.10.1",
+    "@types/react": "^19.2.6",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
+    "@vitest/ui": "^3.2.4",
+    "archiver": "^7.0.1",
+    "eslint": "9.39.2",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-no-only-tests": "^3.3.0",
+    "globals": "^16.5.0",
+    "happy-dom": "^20.8.9",
+    "hygen": "^6.2.11",
+    "tsx": "^4.19.2",
+    "typescript": "^5.0.0",
+    "typescript-eslint": "^8.46.4",
+    "vite": "7.3.2",
+    "vite-plugin-mkcert": "^1.17.9",
+    "vitest": "^3.2.4"
+  }
+}
